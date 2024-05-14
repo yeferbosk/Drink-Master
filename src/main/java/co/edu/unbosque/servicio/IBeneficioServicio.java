@@ -8,9 +8,9 @@ public interface IBeneficioServicio {
 	
     public List<Beneficio> listarBeneficios();
 
-    public Beneficio buscarBaresPorId(Integer idBeneficio);
+    public Beneficio buscarBeneficioPorId(Integer idBeneficio);
 
-    public void guardarBares(Beneficio bares);
+    public void guardarBeneficio(Beneficio bares);
 
-    public void eliminarBaresPorId(Integer idBeneficio);
+    public void eliminarBeneficioPorId(Integer idBeneficio);
 }

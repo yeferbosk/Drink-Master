@@ -8,9 +8,9 @@ public interface IBandaServicio {
 	
     public List<Banda> listarBanda();
 
-    public Banda buscarBaresPorId(Integer idBanda);
+    public Banda buscarBandaPorId(Integer idBanda);
 
-    public void guardarBares(Banda bares);
+    public void guardarBanda(Banda bares);
 
-    public void eliminarBaresPorId(Integer idBanda);
+    public void eliminarBandaPorId(Integer idBanda);
 }

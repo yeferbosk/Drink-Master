@@ -18,20 +18,18 @@ public class ClienteServicio implements IClienteServicio{
 	}
 
 	@Override
-	public Cliente buscarBaresPorId(Integer idCliente) {
-		
-		return null;
+	public Cliente buscarClientePorId(Integer idCliente) {
+		Cliente cliente = this.repositorio.findById(idCliente).orElse(null);
+		return cliente;
 	}
 
 	@Override
-	public void guardarBares(Cliente bares) {
-		// TODO Auto-generated method stub
-		
+	public void guardarCliente(Cliente cliente) {
+		this.repositorio.save(cliente);
 	}
 
 	@Override
-	public void eliminarBaresPorId(Integer idCliente) {
-		// TODO Auto-generated method stub
-		
+	public void eliminarClientePorId(Integer idCliente) {
+		this.repositorio.deleteById(idCliente);
 	}
 }

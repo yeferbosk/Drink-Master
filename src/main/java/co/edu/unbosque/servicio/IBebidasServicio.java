@@ -8,9 +8,9 @@ public interface IBebidasServicio {
 	
     public List<Bebidas> listarBebida();
 
-    public Bebidas buscarBaresPorId(Integer idBebidas);
+    public Bebidas buscarBebidaPorId(Integer idBebidas);
 
-    public void guardarBares(Bebidas bares);
+    public void guardarBebida(Bebidas bares);
 
-    public void eliminarBaresPorId(Integer idBebidas);
+    public void eliminarBebidaPorId(Integer idBebidas);
 }

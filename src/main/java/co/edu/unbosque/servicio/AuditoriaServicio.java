@@ -18,18 +18,18 @@ public class AuditoriaServicio implements IAuditoriaServicio{
 	}
 
 	@Override
-	public Auditoria buscarBaresPorId(Integer idAuditoria) {
+	public Auditoria buscarAuditoriaPorId(Integer idAuditoria) {
 		Auditoria auditoria = this.repositorio.findById(idAuditoria).orElse(null);
 		return auditoria;
 	}
 
 	@Override
-	public void guardarBares(Auditoria auditoria) {
+	public void guardarAuditoria(Auditoria auditoria) {
 		this.repositorio.save(auditoria);
 	}
 
 	@Override
-	public void eliminarBaresPorId(Integer idAuditoria) {
+	public void eliminarAuditoriaPorId(Integer idAuditoria) {
 		this.repositorio.deleteById(idAuditoria);
 	}
 }

@@ -18,20 +18,19 @@ public class BeneficioServicio implements IBeneficioServicio {
 	}
 
 	@Override
-	public Beneficio buscarBaresPorId(Integer idBeneficio) {
+	public Beneficio buscarBeneficioPorId(Integer idBeneficio) {
 		Beneficio beneficio = this.repositorio.findById(idBeneficio).orElse(null);
 		return beneficio;
 	}
 
 	@Override
-	public void guardarBares(Beneficio beneficio) {
+	public void guardarBeneficio(Beneficio beneficio) {
 		this.repositorio.save(beneficio);
 	}
 
 	@Override
-	public void eliminarBaresPorId(Integer idBeneficio) {
-		// TODO Auto-generated method stub
-
+	public void eliminarBeneficioPorId(Integer idBeneficio) {
+		this.repositorio.deleteById(idBeneficio);
 	}
 
 }

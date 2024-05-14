@@ -8,9 +8,9 @@ public interface IAuditoriaServicio {
 	
     public List<Auditoria> listarAuditoria();
 
-    public Auditoria buscarBaresPorId(Integer idAuditoria);
+    public Auditoria buscarAuditoriaPorId(Integer idAuditoria);
 
-    public void guardarBares(Auditoria bares);
+    public void guardarAuditoria(Auditoria bares);
 
-    public void eliminarBaresPorId(Integer idAuditoria);
+    public void eliminarAuditoriaPorId(Integer idAuditoria);
 }

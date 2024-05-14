@@ -18,18 +18,18 @@ public class BebidasSerivicio implements IBebidasServicio{
 	}
 
 	@Override
-	public Bebidas buscarBaresPorId(Integer idBebidas) {
+	public Bebidas buscarBebidaPorId(Integer idBebidas) {
 		Bebidas bebida = this.repositorio.findById(idBebidas).orElse(null);
 		return bebida;
 	}
 
 	@Override
-	public void guardarBares(Bebidas bares) {
+	public void guardarBebida(Bebidas bares) {
 		this.repositorio.save(bares);
 	}
 
 	@Override
-	public void eliminarBaresPorId(Integer idBebidas) {
+	public void eliminarBebidaPorId(Integer idBebidas) {
 		this.repositorio.deleteById(idBebidas);
 	}
 }

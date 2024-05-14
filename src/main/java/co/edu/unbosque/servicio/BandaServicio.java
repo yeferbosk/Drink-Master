@@ -18,18 +18,18 @@ public class BandaServicio implements IBandaServicio{
 	}
 
 	@Override
-	public Banda buscarBaresPorId(Integer idBanda) {
+	public Banda buscarBandaPorId(Integer idBanda) {
 		Banda banda = this.repositorio.findById(idBanda).orElse(null);
 		return banda;
 	}
 
 	@Override
-	public void guardarBares(Banda banda) {
+	public void guardarBanda(Banda banda) {
 		this.repositorio.save(banda);
 	}
 
 	@Override
-	public void eliminarBaresPorId(Integer idBanda) {
-		
+	public void eliminarBandaPorId(Integer idBanda) {
+		this.repositorio.deleteById(idBanda);
 	}
 }
