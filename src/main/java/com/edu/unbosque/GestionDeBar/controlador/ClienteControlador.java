@@ -11,7 +11,7 @@ import com.edu.unbosque.GestionDeBar.modelo.Cliente;
 import com.edu.unbosque.GestionDeBar.servicio.IClienteServicio;
 
 @RestController
-@RequestMapping("/api/clientes")
+@RequestMapping("/bares-app/clientes")
 public class ClienteControlador {
 
     @Autowired

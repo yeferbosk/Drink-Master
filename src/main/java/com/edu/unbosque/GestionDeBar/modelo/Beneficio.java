@@ -19,4 +19,6 @@ public class Beneficio {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id_beneficio;
     String descripcion;
+    
+    
 }

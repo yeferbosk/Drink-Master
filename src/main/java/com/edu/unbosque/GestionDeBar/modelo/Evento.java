@@ -23,4 +23,43 @@ public class Evento {
     String hora_duracion;
     String regalo_concurso;
     Integer id_bar;
+    
+	public Integer getId_evento() {
+		return id_evento;
+	}
+	public void setId_evento(Integer id_evento) {
+		this.id_evento = id_evento;
+	}
+	public String getTematica() {
+		return tematica;
+	}
+	public void setTematica(String tematica) {
+		this.tematica = tematica;
+	}
+	public String getTipo_evento() {
+		return tipo_evento;
+	}
+	public void setTipo_evento(String tipo_evento) {
+		this.tipo_evento = tipo_evento;
+	}
+	public String getHora_duracion() {
+		return hora_duracion;
+	}
+	public void setHora_duracion(String hora_duracion) {
+		this.hora_duracion = hora_duracion;
+	}
+	public String getRegalo_concurso() {
+		return regalo_concurso;
+	}
+	public void setRegalo_concurso(String regalo_concurso) {
+		this.regalo_concurso = regalo_concurso;
+	}
+	public Integer getId_bar() {
+		return id_bar;
+	}
+	public void setId_bar(Integer id_bar) {
+		this.id_bar = id_bar;
+	}
+    
+    
 }

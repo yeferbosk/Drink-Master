@@ -21,4 +21,28 @@ public class Banda {
     String nombre;
     Integer numero_integrantes;
     String tipo_musica;
+	public Integer getId_banda() {
+		return id_banda;
+	}
+	public void setId_banda(Integer id_banda) {
+		this.id_banda = id_banda;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public Integer getNumero_integrantes() {
+		return numero_integrantes;
+	}
+	public void setNumero_integrantes(Integer numero_integrantes) {
+		this.numero_integrantes = numero_integrantes;
+	}
+	public String getTipo_musica() {
+		return tipo_musica;
+	}
+	public void setTipo_musica(String tipo_musica) {
+		this.tipo_musica = tipo_musica;
+	}
 }

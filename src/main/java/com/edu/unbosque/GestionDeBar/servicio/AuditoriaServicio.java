@@ -3,10 +3,12 @@ package com.edu.unbosque.GestionDeBar.servicio;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.edu.unbosque.GestionDeBar.modelo.Auditoria;
 import com.edu.unbosque.GestionDeBar.repositorio.AuditoriaRepositorio;
 
+@Service
 public class AuditoriaServicio implements IAuditoriaServicio{
 
     @Autowired
