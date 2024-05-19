@@ -3,10 +3,12 @@ package com.edu.unbosque.GestionDeBar.servicio;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.edu.unbosque.GestionDeBar.modelo.Cliente;
 import com.edu.unbosque.GestionDeBar.repositorio.ClienteRepositorio;
 
+@Service
 public class ClienteServicio implements IClienteServicio{
 	
 	@Autowired

@@ -15,7 +15,7 @@ import com.edu.unbosque.GestionDeBar.servicio.BaresServicio;
 import java.util.List;
 
 @RestController
-@RequestMapping("bares-app")
+@RequestMapping("/bares-app/controller")
 @CrossOrigin(value = "http://localhost:4200")
 public class BaresControlador {
 

@@ -1,5 +1,8 @@
 package com.edu.unbosque.GestionDeBar.modelo;
 
+
+import java.sql.Date;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,11 +18,12 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class Auditoria {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id_auditoria;
 	String descripcion;
-	java.sql.Date fecha;
+	Date fecha;
 	String valor_nuevo;
 	String valor_antiguo;
 	Integer id_empleado;

@@ -18,6 +18,10 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class Participa {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	Integer id;
+	
 	Integer id_banda;
 	Integer id_evento;
 }

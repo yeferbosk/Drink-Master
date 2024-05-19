@@ -17,6 +17,11 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class Visitar {
+    
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	Integer id;
+	
     Integer id_bar;
     Integer id_evento;
 }

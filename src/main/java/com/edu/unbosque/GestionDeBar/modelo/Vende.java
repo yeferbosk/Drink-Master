@@ -18,6 +18,11 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class Vende {
-    Integer id_bar;
+   
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	Integer id;
+	
+	Integer id_bar;
     Integer id_bebida;
 }
