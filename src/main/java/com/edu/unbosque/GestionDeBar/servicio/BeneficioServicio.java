@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.edu.unbosque.GestionDeBar.modelo.Beneficio;
 import com.edu.unbosque.GestionDeBar.repositorio.BeneficioRepositorio;
+import org.springframework.stereotype.Service;
 
+@Service
 public class BeneficioServicio implements IBeneficioServicio {
 
 	@Autowired

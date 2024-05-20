@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.edu.unbosque.GestionDeBar.modelo.Banda;
 import com.edu.unbosque.GestionDeBar.repositorio.BandaRepositorio;
+import org.springframework.stereotype.Service;
 
+@Service
 public class BandaServicio implements IBandaServicio{
 
 	@Autowired

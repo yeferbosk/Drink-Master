@@ -3,11 +3,7 @@ package com.edu.unbosque.GestionDeBar.controlador;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.edu.unbosque.GestionDeBar.modelo.Bar;
 import com.edu.unbosque.GestionDeBar.servicio.BaresServicio;
@@ -30,5 +26,12 @@ public class BaresControlador {
         logger.info("Bares obtenidos:");
         bares.forEach((Bares -> logger.info(bares.toString())));
         return bares;
+    }
+
+    @PostMapping("/bares")
+    public Bar agregarBar(@RequestBody Bar bares){
+        logger.info("Bar a agregar: "+bares);
+        return this.baresServicio.guardarBares(bares);
+
     }
 }

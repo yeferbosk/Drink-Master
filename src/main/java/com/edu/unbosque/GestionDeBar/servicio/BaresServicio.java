@@ -26,8 +26,8 @@ public class BaresServicio implements IBaresServicio{
     }
 
     @Override
-    public void guardarBares(Bar bares) {
-    this.baresRepositorio.save(bares);
+    public Bar guardarBares(Bar bares) {
+    return this.baresRepositorio.save(bares);
     }
 
     @Override

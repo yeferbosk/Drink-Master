@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.edu.unbosque.GestionDeBar.modelo.Bebida;
 import com.edu.unbosque.GestionDeBar.repositorio.BebidasRepositorio;
+import org.springframework.stereotype.Service;
 
+@Service
 public class BebidasSerivicio implements IBebidasServicio{
 
 	@Autowired

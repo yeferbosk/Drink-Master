@@ -18,7 +18,7 @@ public class Bar {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id_bar;
-    String nombre_dueño;
+    String nombre_dueno;
     String nombre_bar;
     String tipo_bar;
     String direccion;
@@ -32,11 +32,11 @@ public class Bar {
 	public void setId_bar(Integer id_bar) {
 		this.id_bar = id_bar;
 	}
-	public String getNombre_dueño() {
-		return nombre_dueño;
+	public String getNombre_dueno() {
+		return nombre_dueno;
 	}
-	public void setNombre_dueño(String nombre_dueño) {
-		this.nombre_dueño = nombre_dueño;
+	public void setNombre_dueno(String nombre_dueno) {
+		this.nombre_dueno = nombre_dueno;
 	}
 	public String getNombre_bar() {
 		return nombre_bar;

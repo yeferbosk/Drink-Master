@@ -4,7 +4,9 @@ import java.util.List;
 
 import com.edu.unbosque.GestionDeBar.modelo.Pedido;
 import com.edu.unbosque.GestionDeBar.repositorio.PedidoRepositorio;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PedidoServicio implements IPedidoServicio{
 
 	private PedidoRepositorio repositorio;

@@ -42,7 +42,7 @@ public class BarControlador {
     public ResponseEntity<Bar> actualizarBar(@PathVariable Integer id, @RequestBody Bar detallesBar) {
         Bar bar = barServicio.buscarBaresPorId(id);
         if (bar != null) {
-            bar.setNombre_dueño(detallesBar.getNombre_dueño());
+            bar.setNombre_dueno(detallesBar.getNombre_dueno());
             bar.setNombre_bar(detallesBar.getNombre_bar());
             bar.setTipo_bar(detallesBar.getTipo_bar());
             bar.setDireccion(detallesBar.getDireccion());
