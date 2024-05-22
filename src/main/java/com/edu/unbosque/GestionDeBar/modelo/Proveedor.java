@@ -1,9 +1,11 @@
 package com.edu.unbosque.GestionDeBar.modelo;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,15 +16,24 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Table(name = "provedor")
 public class Proveedor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Integer idProveedor;
-	String empresa;
-	String descripcion;
-	String telefono;
+    @Column(name = "id_proveedor")
+    private Integer idProveedor;
 
-	Integer historialCompras;
+    @Column(name = "empresa")
+    private String empresa;
+
+    @Column(name = "descripcion")
+    private String descripcion;
+
+    @Column(name = "telefono")
+    private String telefono;
+
+    @Column(name = "historial_compras")
+    private long historialCompras;
 
 	public Integer getIdProveedor() {
 		return idProveedor;
@@ -56,11 +67,11 @@ public class Proveedor {
 		this.telefono = telefono;
 	}
 
-	public Integer getHistorialCompras() {
+	public long getHistorialCompras() {
 		return historialCompras;
 	}
 
-	public void setHistorialCompras(Integer historialCompras) {
+	public void setHistorialCompras(long historialCompras) {
 		this.historialCompras = historialCompras;
 	}
 }

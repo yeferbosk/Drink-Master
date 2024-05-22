@@ -13,18 +13,36 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Table(name = "cliente")
 public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Integer idCliente;
-	String direccion;
-	Character estado;
-	Integer edad;
-	long historialGasto;
-	String nombre;
-	String ocupacion;
-	String telefono;
-	Integer idBeneficio;
+	@Column(name = "id_cliente")
+    private Integer idCliente;
+
+    @Column(name = "direccion")
+    private String direccion;
+
+    @Column(name = "estado")
+    private char estado;
+
+    @Column(name = "edad")
+    private int edad;
+
+    @Column(name = "historial_gasto")
+    private int historialGasto;
+
+    @Column(name = "nombre")
+    private String nombre;
+
+    @Column(name = "ocupacion")
+    private String ocupacion;
+
+    @Column(name = "telefono")
+    private String telefono;
+
+    @Column(name = "id_beneficio")
+    private Integer idBeneficio;
 
 	public Integer getIdCliente() {
 		return idCliente;
@@ -62,7 +80,7 @@ public class Cliente {
 		return historialGasto;
 	}
 
-	public void setHistorialGasto(long historialGasto) {
+	public void setHistorialGasto(int historialGasto) {
 		this.historialGasto = historialGasto;
 	}
 

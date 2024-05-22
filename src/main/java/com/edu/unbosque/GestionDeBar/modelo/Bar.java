@@ -1,9 +1,11 @@
 package com.edu.unbosque.GestionDeBar.modelo;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,17 +16,33 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Table(name = "bar")
 public class Bar {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Integer idBar;
-	String nombreDueno;
-	String nombreBar;
-	String tipoBar;
-	String direccion;
-	String horario;
-	int capacidad;
-	String telefono;
+	@Column(name = "id_bar")
+    private Integer idBar;
+
+    @Column(name = "nombre_dueno")
+    private String nombreDueno;
+
+    @Column(name = "nombre_bar")
+    private String nombreBar;
+
+    @Column(name = "tipo_bar")
+    private String tipoBar;
+
+    @Column(name = "direccion")
+    private String direccion;
+
+    @Column(name = "horario")
+    private String horario;
+
+    @Column(name = "capacidad")
+    private long capacidad;
+
+    @Column(name = "telefono")
+    private String telefono;
 
 	public Integer getIdBar() {
 		return idBar;
@@ -74,11 +92,11 @@ public class Bar {
 		this.horario = horario;
 	}
 
-	public int getCapacidad() {
+	public Long getCapacidad() {
 		return capacidad;
 	}
 
-	public void setCapacidad(int capacidad) {
+	public void setCapacidad(Long capacidad) {
 		this.capacidad = capacidad;
 	}
 

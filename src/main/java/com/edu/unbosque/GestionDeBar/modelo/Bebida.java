@@ -1,9 +1,11 @@
 package com.edu.unbosque.GestionDeBar.modelo;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,17 +18,33 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Table(name = "bebida")
 public class Bebida {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Integer idBebida;
-	String nombre;
-	String descripcion;
-	String marca;
-	String tipo;
-	int disponibilidad;
-	long precio;
-	Integer idProveedor;
+	@Column(name = "id_bebida")
+    private Integer idBebida;
+
+    @Column(name = "nombre")
+    private String nombre;
+
+    @Column(name = "descripcion")
+    private String descripcion;
+
+    @Column(name = "marca")
+    private String marca;
+
+    @Column(name = "tipo")
+    private String tipo;
+
+    @Column(name = "disponibilidad")
+    private int disponibilidad;
+
+    @Column(name = "precio")
+    private long precio;
+
+    @Column(name = "id_proveedor")
+    private Integer idProveedor;
 
 	public Integer getIdBebida() {
 		return idBebida;

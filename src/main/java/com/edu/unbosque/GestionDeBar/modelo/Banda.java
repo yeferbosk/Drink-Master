@@ -1,9 +1,11 @@
 package com.edu.unbosque.GestionDeBar.modelo;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,13 +16,21 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Table(name = "banda")
 public class Banda {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Integer idBanda;
-	String nombre;
-	int numeroIntegrantes;
-	String tipoMusica;
+    @Column(name = "id_banda")
+    private Integer idBanda;
+
+    @Column(name = "nombre")
+    private String nombre;
+
+    @Column(name = "numero_integrantes")
+    private int numeroIntegrantes;
+
+    @Column(name = "tipo_musica")
+    private String tipoMusica;
 
 	public Integer getIdBanda() {
 		return idBanda;

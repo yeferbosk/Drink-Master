@@ -3,10 +3,12 @@ package com.edu.unbosque.GestionDeBar.modelo;
 
 import java.sql.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,16 +19,28 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Table(name = "auditoria")
 public class Auditoria {
+	
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_auditoria")
+    private Integer idAuditoria;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Integer idAuditoria;
-	String descripcion;
-	Date fecha;
-	int valorNuevo;
-	int valorAntiguo;
-	Integer idEmpleado;
+    @Column(name = "descripcion")
+    private String descripcion;
+
+    @Column(name = "fecha")
+    private Date fecha;
+
+    @Column(name = "valor_nuevo")
+    private String valorNuevo;
+
+    @Column(name = "valor_antiguo")
+    private String valorAntiguo;
+
+    @Column(name = "id_empleado")
+    private Integer idEmpleado;
 
 	public Integer getIdAuditoria() {
 		return idAuditoria;
@@ -52,19 +66,19 @@ public class Auditoria {
 		this.fecha = fecha;
 	}
 
-	public int getValorNuevo() {
+	public String getValorNuevo() {
 		return valorNuevo;
 	}
 
-	public void setValorNuevo(int valorNuevo) {
+	public void setValorNuevo(String valorNuevo) {
 		this.valorNuevo = valorNuevo;
 	}
 
-	public int getValorAntiguo() {
+	public String getValorAntiguo() {
 		return valorAntiguo;
 	}
 
-	public void setValorAntiguo(int valorAntiguo) {
+	public void setValorAntiguo(String valorAntiguo) {
 		this.valorAntiguo = valorAntiguo;
 	}
 
