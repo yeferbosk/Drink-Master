@@ -10,6 +10,8 @@ public interface IBebidasServicio {
 
     public Bebida buscarBebidaPorId(Integer idBebidas);
 
+    public Bebida buscarBebidaPorNombreYDisponibilidad(String nombre, int disponibilidad);
+
     public void guardarBebida(Bebida bares);
 
     public void eliminarBebidaPorId(Integer idBebidas);

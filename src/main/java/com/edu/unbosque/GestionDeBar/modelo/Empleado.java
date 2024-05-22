@@ -17,61 +17,94 @@ import lombok.ToString;
 public class Empleado {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Integer id_empleado;
+	Integer idEmpleado;
 	String nombre;
 	String cedula;
 	String horario;
 	Integer codigo;
-	java.math.BigDecimal sueldo;
+	int sueldo;
 	String rol;
-	Integer id_bar;
-	
-	public Integer getId_empleado() {
-		return id_empleado;
+	Integer idBar;
+	String email;
+	String contrasena;
+
+	public Integer getIdEmpleado() {
+		return idEmpleado;
 	}
-	public void setId_empleado(Integer id_empleado) {
-		this.id_empleado = id_empleado;
+
+	public void setIdEmpleado(Integer idEmpleado) {
+		this.idEmpleado = idEmpleado;
 	}
+
 	public String getNombre() {
 		return nombre;
 	}
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
 	public String getCedula() {
 		return cedula;
 	}
+
 	public void setCedula(String cedula) {
 		this.cedula = cedula;
 	}
+
 	public String getHorario() {
 		return horario;
 	}
+
 	public void setHorario(String horario) {
 		this.horario = horario;
 	}
+
 	public Integer getCodigo() {
 		return codigo;
 	}
+
 	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
-	public java.math.BigDecimal getSueldo() {
+
+	public int getSueldo() {
 		return sueldo;
 	}
-	public void setSueldo(java.math.BigDecimal sueldo) {
+
+	public void setSueldo(int sueldo) {
 		this.sueldo = sueldo;
 	}
+
 	public String getRol() {
 		return rol;
 	}
+
 	public void setRol(String rol) {
 		this.rol = rol;
 	}
-	public Integer getId_bar() {
-		return id_bar;
+
+	public Integer getIdBar() {
+		return idBar;
 	}
-	public void setId_bar(Integer id_bar) {
-		this.id_bar = id_bar;
+
+	public void setIdBar(Integer idBar) {
+		this.idBar = idBar;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getContrasena() {
+		return contrasena;
+	}
+
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
 	}
 }

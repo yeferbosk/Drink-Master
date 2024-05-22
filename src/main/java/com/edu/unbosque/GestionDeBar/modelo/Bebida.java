@@ -9,69 +9,86 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.math.BigDecimal;
+
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
 public class Bebida {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id_bebida;
-    String nombre;
-    String descripcion;
-    String marca;
-    String tipo;
-    Boolean disponibilidad;
-    java.math.BigDecimal precio;
-    Integer id_proveedor;
-    
-	public Integer getId_bebida() {
-		return id_bebida;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Integer idBebida;
+	String nombre;
+	String descripcion;
+	String marca;
+	String tipo;
+	int disponibilidad;
+	long precio;
+	Integer idProveedor;
+
+	public Integer getIdBebida() {
+		return idBebida;
 	}
-	public void setId_bebida(Integer id_bebida) {
-		this.id_bebida = id_bebida;
+
+	public void setIdBebida(Integer idBebida) {
+		this.idBebida = idBebida;
 	}
+
 	public String getNombre() {
 		return nombre;
 	}
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
 	public String getDescripcion() {
 		return descripcion;
 	}
+
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+
 	public String getMarca() {
 		return marca;
 	}
+
 	public void setMarca(String marca) {
 		this.marca = marca;
 	}
+
 	public String getTipo() {
 		return tipo;
 	}
+
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-	public Boolean getDisponibilidad() {
+
+	public int getDisponibilidad() {
 		return disponibilidad;
 	}
-	public void setDisponibilidad(Boolean disponibilidad) {
+
+	public void setDisponibilidad(int disponibilidad) {
 		this.disponibilidad = disponibilidad;
 	}
-	public java.math.BigDecimal getPrecio() {
+
+	public long getPrecio() {
 		return precio;
 	}
-	public void setPrecio(java.math.BigDecimal precio) {
+
+	public void setPrecio(long precio) {
 		this.precio = precio;
 	}
-	public Integer getId_proveedor() {
-		return id_proveedor;
+
+	public Integer getIdProveedor() {
+		return idProveedor;
 	}
-	public void setId_proveedor(Integer id_proveedor) {
-		this.id_proveedor = id_proveedor;
+
+	public void setIdProveedor(Integer idProveedor) {
+		this.idProveedor = idProveedor;
 	}
 }

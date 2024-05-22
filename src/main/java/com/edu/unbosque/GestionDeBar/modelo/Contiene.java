@@ -22,6 +22,30 @@ public class Contiene {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private Integer id_pedido;
-    private Integer id_bebida;
+    private Integer idPedido;
+    private Integer idBebida;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getIdPedido() {
+        return idPedido;
+    }
+
+    public void setIdPedido(Integer idPedido) {
+        this.idPedido = idPedido;
+    }
+
+    public Integer getIdBebida() {
+        return idBebida;
+    }
+
+    public void setIdBebida(Integer idBebida) {
+        this.idBebida = idBebida;
+    }
 }

@@ -2,6 +2,7 @@ package com.edu.unbosque.GestionDeBar.controlador;
 
 import java.util.List;
 
+import com.edu.unbosque.GestionDeBar.servicio.BaresServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,18 +12,19 @@ import com.edu.unbosque.GestionDeBar.modelo.Bar;
 import com.edu.unbosque.GestionDeBar.servicio.IBaresServicio;
 
 @RestController
-@RequestMapping("/api/bares")
+@RequestMapping("/api/bar")
+@CrossOrigin(value = "http://localhost:4200")
 public class BarControlador {
 
     @Autowired
-    private IBaresServicio barServicio;
+    private BaresServicio barServicio;
     
-    @GetMapping
+    @GetMapping("/bar")
     public List<Bar> listarBares() {
         return barServicio.listarBares();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/buscar")
     public ResponseEntity<Bar> buscarBarPorId(@PathVariable Integer id) {
         Bar bar = barServicio.buscarBaresPorId(id);
         if (bar != null) {
@@ -32,19 +34,19 @@ public class BarControlador {
         }
     }
 
-    @PostMapping
+    @PostMapping("/guardar")
     public ResponseEntity<Bar> guardarBar(@RequestBody Bar bar) {
         barServicio.guardarBares(bar);
         return new ResponseEntity<>(bar, HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/actualizar")
     public ResponseEntity<Bar> actualizarBar(@PathVariable Integer id, @RequestBody Bar detallesBar) {
         Bar bar = barServicio.buscarBaresPorId(id);
         if (bar != null) {
-            bar.setNombre_dueno(detallesBar.getNombre_dueno());
-            bar.setNombre_bar(detallesBar.getNombre_bar());
-            bar.setTipo_bar(detallesBar.getTipo_bar());
+            bar.setNombreDueno(detallesBar.getNombreDueno());
+            bar.setNombreBar(detallesBar.getNombreBar());
+            bar.setTipoBar(detallesBar.getTipoBar());
             bar.setDireccion(detallesBar.getDireccion());
             bar.setHorario(detallesBar.getHorario());
             bar.setCapacidad(detallesBar.getCapacidad());
@@ -56,7 +58,7 @@ public class BarControlador {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/eliminar")
     public ResponseEntity<Void> eliminarBar(@PathVariable Integer id) {
         Bar bar = barServicio.buscarBaresPorId(id);
         if (bar != null) {

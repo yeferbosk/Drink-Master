@@ -2,6 +2,7 @@ package com.edu.unbosque.GestionDeBar.controlador;
 
 import java.util.List;
 
+import com.edu.unbosque.GestionDeBar.servicio.ClienteServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,33 +13,34 @@ import com.edu.unbosque.GestionDeBar.servicio.IClienteServicio;
 
 @RestController
 @RequestMapping("/bares-app/clientes")
+@CrossOrigin(value = "http://localhost:4200")
 public class ClienteControlador {
 
     @Autowired
-    private IClienteServicio clienteServicio;
+    private ClienteServicio clienteServicio;
 
-    @GetMapping
+    @GetMapping("/clientes")
     public List<Cliente> listarClientes() {
         return clienteServicio.listarClientes();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/buscar")
     public ResponseEntity<Cliente> obtenerClientePorId(@PathVariable Integer id) {
         Cliente cliente = clienteServicio.buscarClientePorId(id);
         return cliente != null ? ResponseEntity.ok(cliente) : ResponseEntity.notFound().build();
     }
 
-    @PostMapping
+    @PostMapping("/guardar")
     public ResponseEntity<Cliente> guardarCliente(@RequestBody Cliente cliente) {
         clienteServicio.guardarCliente(cliente);
         return new ResponseEntity<>(cliente, HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/actualizar")
     public ResponseEntity<Cliente> actualizarCliente(@PathVariable Integer id, @RequestBody Cliente cliente) {
         Cliente clienteExistente = clienteServicio.buscarClientePorId(id);
         if (clienteExistente != null) {
-            cliente.setId_cliente(id);
+            cliente.setIdCliente(id);
             clienteServicio.guardarCliente(cliente);
             return ResponseEntity.ok(cliente);
         } else {
@@ -46,7 +48,7 @@ public class ClienteControlador {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/eliminar")
     public ResponseEntity<Void> eliminarCliente(@PathVariable Integer id) {
         clienteServicio.eliminarClientePorId(id);
         return ResponseEntity.noContent().build();

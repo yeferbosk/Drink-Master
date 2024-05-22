@@ -23,6 +23,30 @@ public class Vende {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id;
 	
-	Integer id_bar;
-    Integer id_bebida;
+	Integer idBar;
+    Integer idBebida;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getIdBar() {
+        return idBar;
+    }
+
+    public void setIdBar(Integer idBar) {
+        this.idBar = idBar;
+    }
+
+    public Integer getIdBebida() {
+        return idBebida;
+    }
+
+    public void setIdBebida(Integer idBebida) {
+        this.idBebida = idBebida;
+    }
 }

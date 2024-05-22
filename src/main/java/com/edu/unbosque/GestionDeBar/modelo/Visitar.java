@@ -22,6 +22,30 @@ public class Visitar {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id;
 	
-    Integer id_bar;
-    Integer id_evento;
+    Integer idBar;
+    Integer idEvento;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getIdBar() {
+        return idBar;
+    }
+
+    public void setIdBar(Integer idBar) {
+        this.idBar = idBar;
+    }
+
+    public Integer getIdEvento() {
+        return idEvento;
+    }
+
+    public void setIdEvento(Integer idEvento) {
+        this.idEvento = idEvento;
+    }
 }

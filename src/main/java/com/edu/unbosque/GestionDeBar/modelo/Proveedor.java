@@ -15,44 +15,52 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class Proveedor {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id_proveedor;
-    String empresa;
-    String descripcion;
-    String telefono;
-    Integer historial_compras;
-    
-	public Integer getId_proveedor() {
-		return id_proveedor;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Integer idProveedor;
+	String empresa;
+	String descripcion;
+	String telefono;
+
+	Integer historialCompras;
+
+	public Integer getIdProveedor() {
+		return idProveedor;
 	}
-	public void setId_proveedor(Integer id_proveedor) {
-		this.id_proveedor = id_proveedor;
+
+	public void setIdProveedor(Integer idProveedor) {
+		this.idProveedor = idProveedor;
 	}
+
 	public String getEmpresa() {
 		return empresa;
 	}
+
 	public void setEmpresa(String empresa) {
 		this.empresa = empresa;
 	}
+
 	public String getDescripcion() {
 		return descripcion;
 	}
+
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+
 	public String getTelefono() {
 		return telefono;
 	}
+
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-	public Integer getHistorial_compras() {
-		return historial_compras;
+
+	public Integer getHistorialCompras() {
+		return historialCompras;
 	}
-	public void setHistorial_compras(Integer historial_compras) {
-		this.historial_compras = historial_compras;
+
+	public void setHistorialCompras(Integer historialCompras) {
+		this.historialCompras = historialCompras;
 	}
-    
-    
 }

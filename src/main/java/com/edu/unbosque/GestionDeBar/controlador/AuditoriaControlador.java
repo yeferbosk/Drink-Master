@@ -2,6 +2,7 @@ package com.edu.unbosque.GestionDeBar.controlador;
 
 import java.util.List;
 
+import com.edu.unbosque.GestionDeBar.servicio.AuditoriaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,17 +13,18 @@ import com.edu.unbosque.GestionDeBar.servicio.IAuditoriaServicio;
 
 @RestController
 @RequestMapping("/api/auditorias")
+@CrossOrigin(value = "http://localhost:4200")
 public class AuditoriaControlador {
 
     @Autowired
-    private IAuditoriaServicio auditoriaServicio;
+    private AuditoriaServicio auditoriaServicio;
     
-    @GetMapping
+    @GetMapping("/auditoria")
     public List<Auditoria> listarAuditorias() {
         return auditoriaServicio.listarAuditoria();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/buscar")
     public ResponseEntity<Auditoria> buscarAuditoriaPorId(@PathVariable Integer id) {
         Auditoria auditoria = auditoriaServicio.buscarAuditoriaPorId(id);
         if (auditoria != null) {
@@ -32,21 +34,21 @@ public class AuditoriaControlador {
         }
     }
 
-    @PostMapping
+    @PostMapping("/guardar")
     public ResponseEntity<Auditoria> guardarAuditoria(@RequestBody Auditoria auditoria) {
         auditoriaServicio.guardarAuditoria(auditoria);
         return new ResponseEntity<>(auditoria, HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("actualizar")
     public ResponseEntity<Auditoria> actualizarAuditoria(@PathVariable Integer id, @RequestBody Auditoria detallesAuditoria) {
         Auditoria auditoria = auditoriaServicio.buscarAuditoriaPorId(id);
         if (auditoria != null) {
             auditoria.setDescripcion(detallesAuditoria.getDescripcion());
             auditoria.setFecha(detallesAuditoria.getFecha());
-            auditoria.setValor_nuevo(detallesAuditoria.getValor_nuevo());
-            auditoria.setValor_antiguo(detallesAuditoria.getValor_antiguo());
-            auditoria.setId_empleado(detallesAuditoria.getId_empleado());
+            auditoria.setValorNuevo(detallesAuditoria.getValorNuevo());
+            auditoria.setValorAntiguo(detallesAuditoria.getValorAntiguo());
+            auditoria.setIdEmpleado(detallesAuditoria.getIdEmpleado());
             auditoriaServicio.guardarAuditoria(auditoria);
             return new ResponseEntity<>(auditoria, HttpStatus.OK);
         } else {
@@ -54,7 +56,7 @@ public class AuditoriaControlador {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("eliminar")
     public ResponseEntity<Void> eliminarAuditoria(@PathVariable Integer id) {
         Auditoria auditoria = auditoriaServicio.buscarAuditoriaPorId(id);
         if (auditoria != null) {

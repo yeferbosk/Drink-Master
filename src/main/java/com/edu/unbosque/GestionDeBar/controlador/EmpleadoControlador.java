@@ -2,6 +2,7 @@ package com.edu.unbosque.GestionDeBar.controlador;
 
 import java.util.List;
 
+import com.edu.unbosque.GestionDeBar.servicio.EmpleadoServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,18 +12,19 @@ import com.edu.unbosque.GestionDeBar.modelo.Empleado;
 import com.edu.unbosque.GestionDeBar.servicio.IEmpleadoServicio;
 
 @RestController
-@RequestMapping("/api/empleados")
+@RequestMapping("/api/empleado")
+@CrossOrigin(value = "http://localhost:4200")
 public class EmpleadoControlador {
 
     @Autowired
-    private IEmpleadoServicio empleadoServicio;
+    private EmpleadoServicio empleadoServicio;
     
-    @GetMapping
+    @GetMapping("/empleado")
     public List<Empleado> listarEmpleados() {
         return empleadoServicio.listarEmpleados();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/buscar")
     public ResponseEntity<Empleado> buscarEmpleadoPorId(@PathVariable Integer id) {
         Empleado empleado = empleadoServicio.buscarEmpleadoPorId(id);
         if (empleado != null) {
@@ -32,13 +34,13 @@ public class EmpleadoControlador {
         }
     }
 
-    @PostMapping
+    @PostMapping("/guardar")
     public ResponseEntity<Empleado> guardarEmpleado(@RequestBody Empleado empleado) {
         empleadoServicio.guardarEmpleado(empleado);
         return new ResponseEntity<>(empleado, HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/actualizar")
     public ResponseEntity<Empleado> actualizarEmpleado(@PathVariable Integer id, @RequestBody Empleado detallesEmpleado) {
         Empleado empleado = empleadoServicio.buscarEmpleadoPorId(id);
         if (empleado != null) {
@@ -48,7 +50,7 @@ public class EmpleadoControlador {
             empleado.setCodigo(detallesEmpleado.getCodigo());
             empleado.setSueldo(detallesEmpleado.getSueldo());
             empleado.setRol(detallesEmpleado.getRol());
-            empleado.setId_bar(detallesEmpleado.getId_bar());
+            empleado.setIdBar(detallesEmpleado.getIdBar());
             empleadoServicio.guardarEmpleado(empleado);
             return new ResponseEntity<>(empleado, HttpStatus.OK);
         } else {
@@ -56,7 +58,7 @@ public class EmpleadoControlador {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/eliminar")
     public ResponseEntity<Void> eliminarEmpleado(@PathVariable Integer id) {
         Empleado empleado = empleadoServicio.buscarEmpleadoPorId(id);
         if (empleado != null) {

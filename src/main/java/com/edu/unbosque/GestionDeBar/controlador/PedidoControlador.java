@@ -2,6 +2,7 @@ package com.edu.unbosque.GestionDeBar.controlador;
 
 import java.util.List;
 
+import com.edu.unbosque.GestionDeBar.servicio.PedidoServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,18 +12,19 @@ import com.edu.unbosque.GestionDeBar.modelo.Pedido;
 import com.edu.unbosque.GestionDeBar.servicio.IPedidoServicio;
 
 @RestController
-@RequestMapping("/api/pedidos")
+@RequestMapping("/api/pedido")
+@CrossOrigin(value = "http://localhost:4200")
 public class PedidoControlador {
 
     @Autowired
-    private IPedidoServicio pedidoServicio;
+    private PedidoServicio pedidoServicio;
     
-    @GetMapping
+    @GetMapping("/pedido")
     public List<Pedido> listarPedidos() {
         return pedidoServicio.listarPedidos();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/buscar")
     public ResponseEntity<Pedido> buscarPedidoPorId(@PathVariable Integer id) {
         Pedido pedido = pedidoServicio.buscarPedidoPorId(id);
         if (pedido != null) {
@@ -32,13 +34,13 @@ public class PedidoControlador {
         }
     }
 
-    @PostMapping
+    @PostMapping("/guardar")
     public ResponseEntity<Pedido> guardarPedido(@RequestBody Pedido pedido) {
         pedidoServicio.guardarPedido(pedido);
         return new ResponseEntity<>(pedido, HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/actualizar")
     public ResponseEntity<Pedido> actualizarPedido(@PathVariable Integer id, @RequestBody Pedido detallesPedido) {
         Pedido pedido = pedidoServicio.buscarPedidoPorId(id);
         if (pedido != null) {
@@ -46,8 +48,8 @@ public class PedidoControlador {
             pedido.setDescripcion(detallesPedido.getDescripcion());
             pedido.setFecha(detallesPedido.getFecha());
             pedido.setId_bar(detallesPedido.getId_bar());
-            pedido.setId_empleado(detallesPedido.getId_empleado());
-            pedido.setId_cliente(detallesPedido.getId_cliente());
+            pedido.setIdEmpleado(detallesPedido.getIdEmpleado());
+            pedido.setIdCliente(detallesPedido .getIdCliente());
             pedidoServicio.guardarPedido(pedido);
             return new ResponseEntity<>(pedido, HttpStatus.OK);
         } else {
@@ -55,7 +57,7 @@ public class PedidoControlador {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/eliminar")
     public ResponseEntity<Void> eliminarPedido(@PathVariable Integer id) {
         Pedido pedido = pedidoServicio.buscarPedidoPorId(id);
         if (pedido != null) {

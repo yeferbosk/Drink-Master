@@ -15,62 +15,77 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class Bar {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id_bar;
-    String nombre_dueno;
-    String nombre_bar;
-    String tipo_bar;
-    String direccion;
-    String horario;
-    Integer capacidad;
-    String telefono;
-    
-	public Integer getId_bar() {
-		return id_bar;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Integer idBar;
+	String nombreDueno;
+	String nombreBar;
+	String tipoBar;
+	String direccion;
+	String horario;
+	int capacidad;
+	String telefono;
+
+	public Integer getIdBar() {
+		return idBar;
 	}
-	public void setId_bar(Integer id_bar) {
-		this.id_bar = id_bar;
+
+	public void setIdBar(Integer idBar) {
+		this.idBar = idBar;
 	}
-	public String getNombre_dueno() {
-		return nombre_dueno;
+
+	public String getNombreDueno() {
+		return nombreDueno;
 	}
-	public void setNombre_dueno(String nombre_dueno) {
-		this.nombre_dueno = nombre_dueno;
+
+	public void setNombreDueno(String nombreDueno) {
+		this.nombreDueno = nombreDueno;
 	}
-	public String getNombre_bar() {
-		return nombre_bar;
+
+	public String getNombreBar() {
+		return nombreBar;
 	}
-	public void setNombre_bar(String nombre_bar) {
-		this.nombre_bar = nombre_bar;
+
+	public void setNombreBar(String nombreBar) {
+		this.nombreBar = nombreBar;
 	}
-	public String getTipo_bar() {
-		return tipo_bar;
+
+	public String getTipoBar() {
+		return tipoBar;
 	}
-	public void setTipo_bar(String tipo_bar) {
-		this.tipo_bar = tipo_bar;
+
+	public void setTipoBar(String tipoBar) {
+		this.tipoBar = tipoBar;
 	}
+
 	public String getDireccion() {
 		return direccion;
 	}
+
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
+
 	public String getHorario() {
 		return horario;
 	}
+
 	public void setHorario(String horario) {
 		this.horario = horario;
 	}
-	public Integer getCapacidad() {
+
+	public int getCapacidad() {
 		return capacidad;
 	}
-	public void setCapacidad(Integer capacidad) {
+
+	public void setCapacidad(int capacidad) {
 		this.capacidad = capacidad;
 	}
+
 	public String getTelefono() {
 		return telefono;
 	}
+
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}

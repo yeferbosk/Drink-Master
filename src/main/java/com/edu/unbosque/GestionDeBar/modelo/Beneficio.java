@@ -17,8 +17,22 @@ import lombok.ToString;
 public class Beneficio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id_beneficio;
+    Integer idBeneficio;
     String descripcion;
-    
-    
+
+    public Integer getIdBeneficio() {
+        return idBeneficio;
+    }
+
+    public void setIdBeneficio(Integer idBeneficio) {
+        this.idBeneficio = idBeneficio;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 }

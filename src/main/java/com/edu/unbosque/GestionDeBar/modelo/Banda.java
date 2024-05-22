@@ -15,34 +15,42 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class Banda {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id_banda;
-    String nombre;
-    Integer numero_integrantes;
-    String tipo_musica;
-	public Integer getId_banda() {
-		return id_banda;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Integer idBanda;
+	String nombre;
+	int numeroIntegrantes;
+	String tipoMusica;
+
+	public Integer getIdBanda() {
+		return idBanda;
 	}
-	public void setId_banda(Integer id_banda) {
-		this.id_banda = id_banda;
+
+	public void setIdBanda(Integer idBanda) {
+		this.idBanda = idBanda;
 	}
+
 	public String getNombre() {
 		return nombre;
 	}
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public Integer getNumero_integrantes() {
-		return numero_integrantes;
+
+	public int getNumeroIntegrantes() {
+		return numeroIntegrantes;
 	}
-	public void setNumero_integrantes(Integer numero_integrantes) {
-		this.numero_integrantes = numero_integrantes;
+
+	public void setNumeroIntegrantes(int numeroIntegrantes) {
+		this.numeroIntegrantes = numeroIntegrantes;
 	}
-	public String getTipo_musica() {
-		return tipo_musica;
+
+	public String getTipoMusica() {
+		return tipoMusica;
 	}
-	public void setTipo_musica(String tipo_musica) {
-		this.tipo_musica = tipo_musica;
+
+	public void setTipoMusica(String tipoMusica) {
+		this.tipoMusica = tipoMusica;
 	}
 }

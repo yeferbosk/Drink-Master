@@ -22,6 +22,30 @@ public class Participa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id;
 	
-	Integer id_banda;
-	Integer id_evento;
+	Integer idBanda;
+	Integer idEvento;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Integer getIdBanda() {
+		return idBanda;
+	}
+
+	public void setIdBanda(Integer idBanda) {
+		this.idBanda = idBanda;
+	}
+
+	public Integer getIdEvento() {
+		return idEvento;
+	}
+
+	public void setIdEvento(Integer idEvento) {
+		this.idEvento = idEvento;
+	}
 }

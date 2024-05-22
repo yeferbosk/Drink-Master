@@ -18,51 +18,61 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class Auditoria {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Integer id_auditoria;
+	Integer idAuditoria;
 	String descripcion;
 	Date fecha;
-	String valor_nuevo;
-	String valor_antiguo;
-	Integer id_empleado;
-	public Integer getId_auditoria() {
-		return id_auditoria;
+	int valorNuevo;
+	int valorAntiguo;
+	Integer idEmpleado;
+
+	public Integer getIdAuditoria() {
+		return idAuditoria;
 	}
-	public void setId_auditoria(Integer id_auditoria) {
-		this.id_auditoria = id_auditoria;
+
+	public void setIdAuditoria(Integer idAuditoria) {
+		this.idAuditoria = idAuditoria;
 	}
+
 	public String getDescripcion() {
 		return descripcion;
 	}
+
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+
 	public Date getFecha() {
 		return fecha;
 	}
+
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
-	public String getValor_nuevo() {
-		return valor_nuevo;
+
+	public int getValorNuevo() {
+		return valorNuevo;
 	}
-	public void setValor_nuevo(String valor_nuevo) {
-		this.valor_nuevo = valor_nuevo;
+
+	public void setValorNuevo(int valorNuevo) {
+		this.valorNuevo = valorNuevo;
 	}
-	public String getValor_antiguo() {
-		return valor_antiguo;
+
+	public int getValorAntiguo() {
+		return valorAntiguo;
 	}
-	public void setValor_antiguo(String valor_antiguo) {
-		this.valor_antiguo = valor_antiguo;
+
+	public void setValorAntiguo(int valorAntiguo) {
+		this.valorAntiguo = valorAntiguo;
 	}
-	public Integer getId_empleado() {
-		return id_empleado;
+
+	public Integer getIdEmpleado() {
+		return idEmpleado;
 	}
-	public void setId_empleado(Integer id_empleado) {
-		this.id_empleado = id_empleado;
+
+	public void setIdEmpleado(Integer idEmpleado) {
+		this.idEmpleado = idEmpleado;
 	}
-	
-	
 }

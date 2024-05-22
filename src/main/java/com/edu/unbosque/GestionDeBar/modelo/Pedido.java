@@ -10,6 +10,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.sql.Date;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -17,58 +19,69 @@ import lombok.ToString;
 @ToString
 @Table(name = "")
 public class Pedido {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id_pedido;
-    java.math.BigDecimal precio;
-    String descripcion;
-    java.sql.Date fecha;
-    Integer id_bar;
-    Integer id_empleado;
-    Integer id_cliente;
-    
-	public Integer getId_pedido() {
-		return id_pedido;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Integer idPedido;
+	int precio;
+	String descripcion;
+	java.sql.Date fecha;
+	Integer id_bar;
+	Integer idEmpleado;
+	Integer idCliente;
+
+	public Integer getIdPedido() {
+		return idPedido;
 	}
-	public void setId_pedido(Integer id_pedido) {
-		this.id_pedido = id_pedido;
+
+	public void setIdPedido(Integer idPedido) {
+		this.idPedido = idPedido;
 	}
-	public java.math.BigDecimal getPrecio() {
+
+	public int getPrecio() {
 		return precio;
 	}
-	public void setPrecio(java.math.BigDecimal precio) {
+
+	public void setPrecio(int precio) {
 		this.precio = precio;
 	}
+
 	public String getDescripcion() {
 		return descripcion;
 	}
+
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	public java.sql.Date getFecha() {
+
+	public Date getFecha() {
 		return fecha;
 	}
-	public void setFecha(java.sql.Date fecha) {
+
+	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
+
 	public Integer getId_bar() {
 		return id_bar;
 	}
+
 	public void setId_bar(Integer id_bar) {
 		this.id_bar = id_bar;
 	}
-	public Integer getId_empleado() {
-		return id_empleado;
+
+	public Integer getIdEmpleado() {
+		return idEmpleado;
 	}
-	public void setId_empleado(Integer id_empleado) {
-		this.id_empleado = id_empleado;
+
+	public void setIdEmpleado(Integer idEmpleado) {
+		this.idEmpleado = idEmpleado;
 	}
-	public Integer getId_cliente() {
-		return id_cliente;
+
+	public Integer getIdCliente() {
+		return idCliente;
 	}
-	public void setId_cliente(Integer id_cliente) {
-		this.id_cliente = id_cliente;
+
+	public void setIdCliente(Integer idCliente) {
+		this.idCliente = idCliente;
 	}
-    
-    
 }
