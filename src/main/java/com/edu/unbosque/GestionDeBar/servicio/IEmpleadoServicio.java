@@ -13,4 +13,9 @@ public interface IEmpleadoServicio {
     Empleado guardarEmpleado(Empleado empleado);
 
     void eliminarEmpleadoPorId(Integer idEmpleado);
+
+    public boolean validarCredenciales(String email, String password);
+
+    Empleado findByEmaiEmpleado(String email);
+
 }

@@ -49,5 +49,15 @@ public class EmpleadoControlador {
         }
     }
 
+    @PostMapping("/login")
+    public ResponseEntity<?> validarCredenciales(@RequestBody Empleado empleado) {
+        boolean isValid = empleadoServicio.validarCredenciales(empleado.getEmail(), empleado.getContrasena());
+        if (isValid) {
+            return ResponseEntity.ok(empleadoServicio.findByEmaiEmpleado(empleado.getEmail()));
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales incorrectas");
+        }
+    }
+
 
 }
