@@ -39,7 +39,7 @@ public class EmpleadoControlador {
     	return this.empleadoServicio.guardarEmpleado(empleado);
     }
 
-    @GetMapping("/buscar")
+    @GetMapping("/buscar{id}")
     public ResponseEntity<Empleado> buscarEmpleadoPorId(@PathVariable Integer id) {
         Empleado empleado = empleadoServicio.buscarEmpleadoPorId(id);
         if (empleado != null) {
