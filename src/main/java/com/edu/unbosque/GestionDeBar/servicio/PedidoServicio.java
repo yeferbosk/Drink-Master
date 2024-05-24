@@ -23,8 +23,8 @@ public class PedidoServicio implements IPedidoServicio{
 	}
 
 	@Override
-	public void guardarPedido(Pedido pedido) {
-		this.repositorio.save(pedido);
+	public Pedido guardarPedido(Pedido pedido) {
+		return this.repositorio.save(pedido);
 	}
 
 	@Override

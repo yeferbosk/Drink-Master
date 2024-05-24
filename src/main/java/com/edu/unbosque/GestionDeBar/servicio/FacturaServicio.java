@@ -42,4 +42,4 @@ public class FacturaServicio {
     private long calcularImpuestos(long total) {
         return (long) (total * 0.19); // Ejemplo de impuesto del 19%
     }
-}
+} 		

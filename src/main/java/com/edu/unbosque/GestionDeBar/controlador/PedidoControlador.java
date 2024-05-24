@@ -3,6 +3,9 @@ package com.edu.unbosque.GestionDeBar.controlador;
 import java.util.List;
 
 import com.edu.unbosque.GestionDeBar.servicio.PedidoServicio;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,12 +19,23 @@ import com.edu.unbosque.GestionDeBar.servicio.IPedidoServicio;
 @CrossOrigin(value = "http://localhost:4200")
 public class PedidoControlador {
 
+	private static final Logger logger = LoggerFactory.getLogger(BarControlador.class);
+	
     @Autowired
     private PedidoServicio pedidoServicio;
     
     @GetMapping("/pedido")
     public List<Pedido> listarPedidos() {
-        return pedidoServicio.listarPedidos();
+        List<Pedido> pedido = this.pedidoServicio.listarPedidos();
+        logger.info("Pedido obtenidos: " + pedido);
+        pedido.forEach((Pedido -> logger.info(pedido.toString())));
+    	return pedidoServicio.listarPedidos();
+    }
+
+    @PostMapping("/guardar")
+    public Pedido guardarPedido(@RequestBody Pedido pedido) {
+    	logger.info("Pedido a agregar: " + pedido);
+    	return this.pedidoServicio.guardarPedido(pedido);
     }
 
     @GetMapping("/buscar")
@@ -34,37 +48,4 @@ public class PedidoControlador {
         }
     }
 
-    @PostMapping("/guardar")
-    public ResponseEntity<Pedido> guardarPedido(@RequestBody Pedido pedido) {
-        pedidoServicio.guardarPedido(pedido);
-        return new ResponseEntity<>(pedido, HttpStatus.CREATED);
-    }
-
-    @PutMapping("/actualizar")
-    public ResponseEntity<Pedido> actualizarPedido(@PathVariable Integer id, @RequestBody Pedido detallesPedido) {
-        Pedido pedido = pedidoServicio.buscarPedidoPorId(id);
-        if (pedido != null) {
-            pedido.setPrecio(detallesPedido.getPrecio());
-            pedido.setDescripcion(detallesPedido.getDescripcion());
-            pedido.setFecha(detallesPedido.getFecha());
-            pedido.setId_bar(detallesPedido.getId_bar());
-            pedido.setIdEmpleado(detallesPedido.getIdEmpleado());
-            pedido.setIdCliente(detallesPedido .getIdCliente());
-            pedidoServicio.guardarPedido(pedido);
-            return new ResponseEntity<>(pedido, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
-
-    @DeleteMapping("/eliminar")
-    public ResponseEntity<Void> eliminarPedido(@PathVariable Integer id) {
-        Pedido pedido = pedidoServicio.buscarPedidoPorId(id);
-        if (pedido != null) {
-            pedidoServicio.eliminarPedidoPorId(id);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
 }

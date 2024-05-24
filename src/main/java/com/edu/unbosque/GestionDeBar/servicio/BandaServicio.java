@@ -26,8 +26,8 @@ public class BandaServicio implements IBandaServicio{
 	}
 
 	@Override
-	public void guardarBanda(Banda banda) {
-		this.repositorio.save(banda);
+	public Banda guardarBanda(Banda banda) {
+		return this.repositorio.save(banda);
 	}
 
 	@Override

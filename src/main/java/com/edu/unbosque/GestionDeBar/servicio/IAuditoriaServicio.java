@@ -10,7 +10,7 @@ public interface IAuditoriaServicio {
 
     public Auditoria buscarAuditoriaPorId(Integer idAuditoria);
 
-    public void guardarAuditoria(Auditoria bares);
+    public Auditoria guardarAuditoria(Auditoria bares);
 
     public void eliminarAuditoriaPorId(Integer idAuditoria);
 }

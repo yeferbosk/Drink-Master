@@ -10,7 +10,7 @@ public interface IBandaServicio {
 
     public Banda buscarBandaPorId(Integer idBanda);
 
-    public void guardarBanda(Banda bares);
+    public Banda guardarBanda(Banda bares);
 
     public void eliminarBandaPorId(Integer idBanda);
 }

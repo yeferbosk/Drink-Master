@@ -25,8 +25,8 @@ public class ProveedorServicio implements IProveedorServicio {
     }
 
     @Override
-    public void guardarProveedor(Proveedor proveedor) {
-        proveedorRepositorio.save(proveedor);
+    public Proveedor guardarProveedor(Proveedor proveedor) {
+       return proveedorRepositorio.save(proveedor);
     }
 
     @Override

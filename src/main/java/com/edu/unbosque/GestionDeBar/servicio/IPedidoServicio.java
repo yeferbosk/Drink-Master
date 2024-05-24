@@ -10,7 +10,7 @@ public interface IPedidoServicio {
 
     public Pedido buscarPedidoPorId(Integer idPedido);
 
-    public void guardarPedido(Pedido pedido);
+    public Pedido guardarPedido(Pedido pedido);
 
     public void eliminarPedidoPorId(Integer idPedido);
 	

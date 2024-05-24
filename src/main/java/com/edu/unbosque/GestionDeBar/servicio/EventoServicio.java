@@ -3,6 +3,7 @@ package com.edu.unbosque.GestionDeBar.servicio;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.edu.unbosque.GestionDeBar.modelo.Evento;
@@ -25,8 +26,8 @@ public class EventoServicio implements IEventoServicio {
     }
 
     @Override
-    public void guardarEvento(Evento evento) {
-        this.eventoRepositorio.save(evento);
+    public Evento guardarEvento(Evento evento) {
+       return  this.eventoRepositorio.save(evento);
     }
 
     @Override

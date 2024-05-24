@@ -26,12 +26,18 @@ public class ClienteServicio implements IClienteServicio{
 	}
 
 	@Override
-	public void guardarCliente(Cliente cliente) {
-		this.repositorio.save(cliente);
+	public Cliente guardarCliente(Cliente cliente) {
+		return this.repositorio.save(cliente);
 	}
 
 	@Override
 	public void eliminarClientePorId(Integer idCliente) {
 		this.repositorio.deleteById(idCliente);
+	}
+
+	@Override
+	public List<Cliente> buscarClientePorNombre(String nombre) {
+		return repositorio.findByNombreIgnoreCase(nombre);
+	
 	}
 }

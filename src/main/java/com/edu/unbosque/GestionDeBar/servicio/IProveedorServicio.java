@@ -9,7 +9,7 @@ public interface IProveedorServicio {
 
     Proveedor buscarProveedorPorId(Integer idProveedor);
 
-    void guardarProveedor(Proveedor proveedor);
+    Proveedor guardarProveedor(Proveedor proveedor);
 
     void eliminarProveedorPorId(Integer idProveedor);
 }

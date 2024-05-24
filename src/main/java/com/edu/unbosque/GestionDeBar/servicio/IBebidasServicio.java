@@ -12,7 +12,9 @@ public interface IBebidasServicio {
 
     public Bebida buscarBebidaPorNombreYDisponibilidad(String nombre, int disponibilidad);
 
-    public void guardarBebida(Bebida bares);
+    public Bebida guardarBebida(Bebida bares);
 
     public void eliminarBebidaPorId(Integer idBebidas);
+    
+    
 }

@@ -26,8 +26,8 @@ public class AuditoriaServicio implements IAuditoriaServicio{
 	}
 
 	@Override
-	public void guardarAuditoria(Auditoria auditoria) {
-		this.repositorio.save(auditoria);
+	public Auditoria guardarAuditoria(Auditoria auditoria) {
+		return this.repositorio.save(auditoria);
 	}
 
 	@Override

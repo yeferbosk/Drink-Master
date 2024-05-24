@@ -3,6 +3,9 @@ package com.edu.unbosque.GestionDeBar.controlador;
 import java.util.List;
 
 import com.edu.unbosque.GestionDeBar.servicio.EventoServicio;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,12 +19,23 @@ import com.edu.unbosque.GestionDeBar.servicio.IEventoServicio;
 @CrossOrigin(value = "http://localhost:4200")
 public class EventoControlador {
 
+	private static final Logger logger = LoggerFactory.getLogger(EventoControlador.class);
+	
     @Autowired
     private EventoServicio eventoServicio;
     
     @GetMapping("/evento")
     public List<Evento> listarEventos() {
-        return eventoServicio.listarEventos();
+    	List<Evento> evento = this.eventoServicio.listarEventos();
+    	logger.info("Eventos obtenidos" + evento);
+    	evento.forEach((Evento -> logger.info((evento.toString()))));
+        return evento;
+    }
+
+    @PostMapping("/guardar")
+    public Evento guardarEvento(@RequestBody Evento evento) {
+    	logger.info("Evento a agregar: " + evento);
+    	return this.eventoServicio.guardarEvento(evento);
     }
 
     @GetMapping("/buscar")
@@ -34,36 +48,4 @@ public class EventoControlador {
         }
     }
 
-    @PostMapping("/guardar")
-    public ResponseEntity<Evento> guardarEvento(@RequestBody Evento evento) {
-        eventoServicio.guardarEvento(evento);
-        return new ResponseEntity<>(evento, HttpStatus.CREATED);
-    }
-
-    @PutMapping("/actualizar")
-    public ResponseEntity<Evento> actualizarEvento(@PathVariable Integer id, @RequestBody Evento detallesEvento) {
-        Evento evento = eventoServicio.buscarEventoPorId(id);
-        if (evento != null) {
-            evento.setTematica(detallesEvento.getTematica());
-            evento.setTipoEvento(detallesEvento.getTipoEvento());
-            evento.setHoraDuracion(detallesEvento.getHoraDuracion());
-            evento.setRegaloConcurso(detallesEvento.getRegaloConcurso());
-            evento.setIdBar(detallesEvento.getIdBar());
-            eventoServicio.guardarEvento(evento);
-            return new ResponseEntity<>(evento, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
-
-    @DeleteMapping("/eliminar")
-    public ResponseEntity<Void> eliminarEvento(@PathVariable Integer id) {
-        Evento evento = eventoServicio.buscarEventoPorId(id);
-        if (evento != null) {
-            eventoServicio.eliminarEventoPorId(id);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
 }

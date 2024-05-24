@@ -9,7 +9,7 @@ public interface IEventoServicio {
 
     Evento buscarEventoPorId(Integer idEvento);
 
-    void guardarEvento(Evento evento);
+    Evento guardarEvento(Evento evento);
 
     void eliminarEventoPorId(Integer idEvento);
 }

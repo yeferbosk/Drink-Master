@@ -7,5 +7,5 @@ import com.edu.unbosque.GestionDeBar.modelo.Bebida;
 import java.util.List;
 
 public interface BebidasRepositorio extends JpaRepository<Bebida, Integer>{
-    List<Bebida> findByNombre(String nombre);
+	  List<Bebida> findByNombre(String nombre);
 }

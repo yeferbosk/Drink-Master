@@ -10,7 +10,9 @@ public interface IClienteServicio {
 
     public Cliente buscarClientePorId(Integer idCliente);
 
-    public void guardarCliente(Cliente bares);
+    public Cliente guardarCliente(Cliente bares);
 
     public void eliminarClientePorId(Integer idCliente);
+    
+    public List<Cliente> buscarClientePorNombre(String nombre);
 }

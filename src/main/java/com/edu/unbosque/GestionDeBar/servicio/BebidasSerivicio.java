@@ -36,8 +36,8 @@ public class BebidasSerivicio implements IBebidasServicio {
 	}
 
 	@Override
-	public void guardarBebida(Bebida bebida) {
-		this.repositorio.save(bebida);
+	public Bebida guardarBebida(Bebida bebida) {
+		return this.repositorio.save(bebida);
 	}
 
 	@Override
