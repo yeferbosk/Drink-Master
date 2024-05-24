@@ -15,7 +15,7 @@ import com.edu.unbosque.GestionDeBar.modelo.Pedido;
 import com.edu.unbosque.GestionDeBar.servicio.IPedidoServicio;
 
 @RestController
-@RequestMapping("/api/pedido")
+@RequestMapping("/bares-app/controllerPedido")
 @CrossOrigin(value = "http://localhost:4200")
 public class PedidoControlador {
 

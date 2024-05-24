@@ -92,7 +92,7 @@ import com.edu.unbosque.GestionDeBar.modelo.Bar;
 import com.edu.unbosque.GestionDeBar.servicio.BaresServicio;
 
 @RestController
-@RequestMapping("/bares-app/controller")
+@RequestMapping("/bares-app/controllerBar")
 @CrossOrigin(value = "http://localhost:4200")
 public class BarControlador {
 
@@ -116,7 +116,7 @@ public class BarControlador {
         return this.barServicio.guardarBares(bares);
     }
     
-    @GetMapping("/bar({id}")
+    @GetMapping("/bar{id}")
     public ResponseEntity<Bar> buscarBarPorId(@PathVariable int id){
     	Bar bar = this.barServicio.buscarBaresPorId(id);
     	

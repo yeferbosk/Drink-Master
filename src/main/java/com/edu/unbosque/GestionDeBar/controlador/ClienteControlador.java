@@ -15,7 +15,7 @@ import com.edu.unbosque.GestionDeBar.modelo.Cliente;
 import com.edu.unbosque.GestionDeBar.servicio.IClienteServicio;
 
 @RestController
-@RequestMapping("/bares-app/clientes")
+@RequestMapping("/bares-app/controllerCliente")
 @CrossOrigin(value = "http://localhost:4200")
 public class ClienteControlador {
 

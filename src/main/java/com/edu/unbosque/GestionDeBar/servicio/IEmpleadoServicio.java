@@ -16,6 +16,6 @@ public interface IEmpleadoServicio {
 
     public boolean validarCredenciales(String email, String password);
 
-    Empleado findByEmaiEmpleado(String email);
+    Empleado findByEmailQuery(String email);
 
 }

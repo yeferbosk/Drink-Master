@@ -16,7 +16,7 @@ import com.edu.unbosque.GestionDeBar.modelo.Banda;
 import com.edu.unbosque.GestionDeBar.servicio.IBandaServicio;
 
 @RestController
-@RequestMapping("/api/bandas")
+@RequestMapping("/bares-app/controllerBanda")
 @CrossOrigin(value = "http://localhost:4200")
 public class BandaControlador {
 
@@ -25,7 +25,7 @@ public class BandaControlador {
     @Autowired
     private BandaServicio bandaServicio;
     
-    @GetMapping("/bandas")
+    @GetMapping("/banda")
     public List<Banda> listarBandas() {
     	List<Banda> banda = this.bandaServicio.listarBanda();
     	logger.info("Banda obtenida:" + banda);
@@ -33,13 +33,13 @@ public class BandaControlador {
         return bandaServicio.listarBanda();
     }
 
-    @PostMapping("/guardar")
+    @PostMapping("/banda")
     public Banda guardarBanda(@RequestBody Banda banda) {
     	logger.info("Banda a agregar: " + banda);
     	return this.bandaServicio.guardarBanda(banda);
     }
 
-    @GetMapping("/buscar")
+    @GetMapping("/buscar{id}")
     public ResponseEntity<Banda> buscarBandaPorId(@PathVariable Integer id) {
         Banda banda = bandaServicio.buscarBandaPorId(id);
         if (banda != null) {

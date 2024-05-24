@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
-@RequestMapping("/bares-app/factura")
+@RequestMapping("/bares-app/controllerFactura")
 @CrossOrigin(value = "http://localhost:4200")
 public class FacturaController {
 

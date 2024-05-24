@@ -15,7 +15,7 @@ import com.edu.unbosque.GestionDeBar.modelo.Evento;
 import com.edu.unbosque.GestionDeBar.servicio.IEventoServicio;
 
 @RestController
-@RequestMapping("/api/evento")
+@RequestMapping("/bares-app/controllerEvento")
 @CrossOrigin(value = "http://localhost:4200")
 public class EventoControlador {
 

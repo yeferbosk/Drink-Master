@@ -16,14 +16,14 @@ import com.edu.unbosque.GestionDeBar.modelo.Empleado;
 import com.edu.unbosque.GestionDeBar.servicio.IEmpleadoServicio;
 
 @RestController
-@RequestMapping("/api/empleado")
+@RequestMapping("/bares-app/controllerEmpleado")
 @CrossOrigin(value = "http://localhost:4200")
 public class EmpleadoControlador {
 	
 	private static final Logger logger = LoggerFactory.getLogger(ClienteControlador.class);
 
     @Autowired
-    private EmpleadoServicio empleadoServicio;
+    private IEmpleadoServicio empleadoServicio;
     
     @GetMapping("/empleado")
     public List<Empleado> listarEmpleados() {
@@ -53,7 +53,7 @@ public class EmpleadoControlador {
     public ResponseEntity<?> validarCredenciales(@RequestBody Empleado empleado) {
         boolean isValid = empleadoServicio.validarCredenciales(empleado.getEmail(), empleado.getContrasena());
         if (isValid) {
-            return ResponseEntity.ok(empleadoServicio.findByEmaiEmpleado(empleado.getEmail()));
+            return ResponseEntity.ok(empleadoServicio.findByEmailQuery(empleado.getEmail()));
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales incorrectas");
         }

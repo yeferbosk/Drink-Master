@@ -7,16 +7,14 @@ import com.edu.unbosque.GestionDeBar.servicio.ProveedorServicio;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.edu.unbosque.GestionDeBar.excepcion.RecursoNoEncontradoExcepcion;
 import com.edu.unbosque.GestionDeBar.modelo.Proveedor;
-import com.edu.unbosque.GestionDeBar.servicio.IProveedorServicio;
 
 @RestController
-@RequestMapping("/api/proveedores")
+@RequestMapping("/bares-app/controllerProveedor")
 @CrossOrigin(value = "http://localhost:4200")
 public class ProveedorControlador {
 

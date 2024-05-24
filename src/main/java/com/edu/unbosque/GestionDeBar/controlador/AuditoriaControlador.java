@@ -16,7 +16,7 @@ import com.edu.unbosque.GestionDeBar.modelo.Auditoria;
 import com.edu.unbosque.GestionDeBar.servicio.IAuditoriaServicio;
 
 @RestController
-@RequestMapping("/api/auditorias")
+@RequestMapping("/bares-app/controllerAuditoria")
 @CrossOrigin(value = "http://localhost:4200")
 public class AuditoriaControlador {
 

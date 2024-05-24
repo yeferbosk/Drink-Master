@@ -15,9 +15,9 @@ import com.edu.unbosque.GestionDeBar.excepcion.RecursoNoEncontradoExcepcion;
 import com.edu.unbosque.GestionDeBar.modelo.Bebida;
 import com.edu.unbosque.GestionDeBar.servicio.IBebidasServicio;
 
+@RequestMapping("/bares-app/controllerBebida")
 @CrossOrigin(value = "http://localhost:4200")
 @RestController
-@RequestMapping("/api/bebidas")
 public class BebidaControlador {
 
 	private static final Logger logger = LoggerFactory.getLogger(BebidaControlador.class);
@@ -33,13 +33,13 @@ public class BebidaControlador {
         return bebida;
     }
 
-    @PostMapping("/guardar")
+    @PostMapping("/bebida")
     public Bebida guardarBebida(@RequestBody Bebida bebida) {
 		logger.info("Bebida a agregar: " + bebida);
 		return this.bebidaServicio.guardarBebida(bebida);
     }
 
-    @GetMapping("/buscarId")
+    @GetMapping("/buscar{id}")
     public ResponseEntity<Bebida> buscarBebidaPorId(@PathVariable Integer id) {
         Bebida bebida = bebidaServicio.buscarBebidaPorId(id);
         if (bebida != null) {

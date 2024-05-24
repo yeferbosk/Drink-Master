@@ -36,12 +36,12 @@ public class EmpleadoServicio implements IEmpleadoServicio {
 
     @Override
     public boolean validarCredenciales(String email, String password) {
-        Empleado usuario = empleadoRepositorio.findByUsername(email);
+        Empleado usuario = empleadoRepositorio.findByEmail(email);
         return usuario != null && usuario.getContrasena().equals(password);
     }
 
     @Override
-    public Empleado findByEmaiEmpleado(String email) {
-        return empleadoRepositorio.findByEmaiEmpleado(email);
+    public Empleado findByEmailQuery(String email) {
+        return empleadoRepositorio.findByEmailQuery(email);
     }
 }
